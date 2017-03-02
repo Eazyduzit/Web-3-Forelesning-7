@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="articleApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Angular Test 3</title>
+<script src="react-angular-bootstrap-local/js/angular.min.js"></script>
+</head>
+<body>
+    <section ng-controller="ArticleController as articleCtrl">
+        <article>
+            <h3>{{articleCtrl.articleJSON.title}}</h3>
+            <p>{{articleCtrl.articleJSON.description}}</p>
+            <img ng-src="{{articleCtrl.articleJSON.imageSrc}}" alt="">
+        </article>
+    </section>
+    
+    <script>
+        var articleApp = angular.module("articleApp", []);
+        
+        articleApp.controller("ArticleController", function(){
+            this.articleJSON = {
+                title: "En vakker bil",
+                description: "A very modern car.",
+                imageSrc: "images/car2.png"
+            }; 
+        });
+    </script>
+
+</body>
+</html>

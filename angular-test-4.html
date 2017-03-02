@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="carApp">
+<head>
+<meta charset="utf-8">
+<title>New HMTL document by NewJect</title>
+<script src="react-angular-bootstrap-local/js/angular.min.js"></script>
+</head>
+<body>
+
+    <section ng-controller="CarController as carCtrl">
+       
+       <input ng-click="carCtrl.changeVisibility()" type="button" value="Skjul/Vis">
+       
+        <article ng-repeat="car in carCtrl.carlist" ng-show="carCtrl.shouldShow">
+            <h3>{{car.modell}}</h3>
+            <p>{{car.beskrivelse + " pris: " + car.pris}}</p>
+            <img src="{{car.bildeSrc}}" alt="">
+        </article>
+    </section>
+    <script>
+        var carApp = angular.module("carApp", []);
+        
+        carApp.controller("CarController", function(){
+            
+            this.shouldShow = false; //koblet til ng-show i article
+            this.changeVisibility = function(){
+                this.shouldShow = !this.shouldShow;
+            };
+            
+            this.carlist = [  //liste med JSON objekter, ikke en JSON objekt liste.
+                {
+                    modell: "Aston Martin", 
+                    beskrivelse: "Nydelig bil",
+                    pris: 2200000,
+                    bildeSrc: "images/car1.jpg"
+                },
+                {
+                    modell: "Aston Martin", 
+                    beskrivelse: "Vakker bil",
+                    pris: 2500000,
+                    bildeSrc: "images/car2.png"
+                },
+                {
+                    modell: "Aston Martin", 
+                    beskrivelse: "Fantastisk bil",
+                    pris: 3000000,
+                    bildeSrc: "images/car3.jpg"
+                }
+            ];
+            
+        });
+    </script>
+
+</body>
+</html>

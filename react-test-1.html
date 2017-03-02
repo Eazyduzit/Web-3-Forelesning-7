@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>React Test 1</title>
+    <script src="react-angular-bootstrap-local/js/react.min.js"></script>
+    <script src="react-angular-bootstrap-local/js/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    <link href="react-angular-bootstrap-local/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div id="mainPageHeaderContainer"></div>
+    <div id="mainContentContainer"></div>
+    
+    <script type="text/babel">
+        var PageHeader = React.createClass({
+            render: function(){
+                return (   //kun lov med en forelder her, Header må evt pakkes inn i en Div, om det skal utvides med lister ol.
+                    <header className="page-header"> {/*dette er nå jsx kode, ikke html*/}
+                        <h1>React is cool</h1>
+                        <p>{this.props.funFact}</p>
+                    </header>
+                );
+            }
+        }); //end PageHeader
+
+        ReactDOM.render(
+            <div>
+                <PageHeader funFact="React ble laget i 2013"></PageHeader>
+                <PageHeader funFact="React ble utviklet av Facebook"></PageHeader>
+                <PageHeader funFact="React er ett JS-bibliotek"></PageHeader>
+            </div>,
+            document.getElementById("mainPageHeaderContainer")
+        );
+    </script>
+
+</body>
+</html>
